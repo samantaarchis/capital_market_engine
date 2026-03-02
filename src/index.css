@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-engine-bg: #05070a;
+  --color-engine-cyan: #00f2ff;
+  --color-engine-magenta: #ff00ff;
+  --color-engine-green: #00ff88;
+  --color-engine-blue: #0066ff;
+  --color-engine-glass: rgba(10, 15, 25, 0.7);
+  --color-engine-border: rgba(0, 242, 255, 0.2);
+}
+
+@layer base {
+  body {
+    @apply bg-engine-bg text-slate-300 font-sans overflow-hidden;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-engine-glass backdrop-blur-md border border-engine-border rounded-xl;
+  }
+
+  .neon-text-cyan {
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+  }
+
+  .neon-border-cyan {
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+  }
+}
+
+@keyframes flow {
+  0% { transform: translateX(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(400%); opacity: 0; }
+}
+
+.animate-flow {
+  animation: flow 3s linear infinite;
+}
